@@ -1,11 +1,6 @@
-/**
- * WebdriverIO config file to run tests on native mobile apps.
- * Config file helps us configure all the settings and setup environments 
- * to run our tests.
- */
 
-const host = '127.0.0.1';   // default appium host
-const port = 4730;          // default appium port
+const host = '0.0.0.0';   // default appium host
+const port = 4723;          // default appium port
 
 const waitforTimeout = 30 * 60000;
 const commandTimeout = 30 * 60000;
@@ -13,13 +8,13 @@ const commandTimeout = 30 * 60000;
 exports.config = {
     debug: false,
     specs: [
-        './features/appium.feature',
+        './features/*.feature',
     ],
 
     reporters: ['allure','spec'],
     reporterOptions: {
         allure: {
-            outputDir: 'allure-results'
+            outputDir: './allure-results/'
         }
     },
 
@@ -28,15 +23,14 @@ exports.config = {
 
     maxInstances: 1,
 
-    baseUrl: 'http://www.google.com',
-
     capabilities: [
         {
-            appiumVersion: '1.8.1',
-            browserName: 'chrome',  // browser name should be specified
+            appiumVersion: '1.9.1',
             platformName: 'Android',
-            platformVersion: '7.1.1',
-            deviceName: 'A0001', // device name is mandatory
+            app: 'http://appium.github.io/appium/assets/selendroid-test-app-0.10.0.apk',
+            //appPackage: 'com.android.calculator2',  // Package name of your app
+            //appActivity: 'com.android.calculator2.Calculator', // App activity of the app// Android platform version of the device
+            deviceName: '192.168.56.101:5555',
             waitforTimeout: waitforTimeout,
             commandTimeout: commandTimeout,
             newCommandTimeout: 30 * 60000,
@@ -58,37 +52,26 @@ exports.config = {
         }
     },
 
-    /**
-     * test configurations
-     */
     logLevel: 'silent',
     coloredLogs: true,
-    framework: 'cucumber',          // cucumber framework specified 
+    framework: 'cucumber',
     cucumberOpts: {
         compiler: ['ts:ts-node/register'],
         backtrace: true,
         failFast: false,
         timeout: 5 * 60 * 60000,
-        require: ['./stepDefinitions/appiumSteps.ts']   // importing/requiring step definition files
+        require: ['./stepDefinitions/*.ts']
     },
 
-    /**
-     * hooks
-     */
     onPrepare: function () {
-        console.log('<<< BROWSER TESTS STARTED >>>');
-    },
-
-    before: function (capabilities, specs) {
-        browser.url(this.baseUrl);
+        console.log('<<< NATIVE APP TESTS STARTED >>>');
     },
 
     afterScenario: function (scenario) {
-       browser.screenshot();
+        browser.screenshot();
     },
 
     onComplete: function () {
-
         console.log('<<< TESTING FINISHED >>>');
     }
 

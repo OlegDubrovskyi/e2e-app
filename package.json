@@ -1,50 +1,35 @@
-{
-  "name": "appium-webdriverio-tests",
-  "version": "1.0.0",
-  "description": "Test framework for automating mobile apps with appium using webdriverio & typescript!",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "clean": "rimraf typeScript/",
-    "clean-build": "npm run clean && npm run build",
-    "appium": "appium",
-    "app-test": "wdio ./config/wdio.app.config.js",
-    "browser-test": "wdio ./config/wdio.browser.config.js",
-    "pretest": "npm run clean-build",
-    "test": "npm run app-test && npm run browser-test",
-    "report": "allure generate ./allure-results"
-  },
-  "keywords": [
-    "appium",
-    "webdriverio",
-    "typescript",
-    "mobile automation",
-    "behaviour driven development",
-    "bdd",
-    "selenium",
-    "webdriverJS",
-    "gherkin",
-    "automation testing"
-  ],
-  "author": "Ram Pasala <ram.pasala7@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/chai": "^4.1.4",
-    "@types/cucumber": "^4.0.4",
-    "@types/node": "^10.3.4",
-    "@types/webdriverio": "^4.10.2",
-    "allure-commandline": "^2.5.0",
-    "appium": "^1.8.1",
-    "chai": "^4.1.2",
-    "cucumber": "^4.2.1",
-    "rimraf": "^2.6.2",
-    "ts-node": "^6.1.1",
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.2",
-    "wdio-allure-reporter": "^0.6.2",
-    "wdio-appium-service": "^0.2.3",
-    "wdio-cucumber-framework": "^2.1.0",
-    "wdio-spec-reporter": "^0.1.4",
-    "webdriverio": "^4.12.0"
-  }
-}
+  {
+   "name": "e2e-app",
+   "version": "1.0.0",
+   "description": "test app",
+   "scripts": {
+     "build": "tsc",
+     "clean": "rimraf typeScript/",
+     "clean-build": "npm run clean && npm run build",
+     "appium": "appium",
+     "app-test": "npm run build && wdio ./config/wdio.config.js",
+     "pretest": "npm run clean-build",
+     "test": "npm run app-test && npm run browser-test",
+     "report": "allure generate ./allure-results"
+   },
+   "license": "MIT",
+   "devDependencies": {
+     "@types/chai": "^4.1.4",
+     "@types/cucumber": "^4.0.4",
+     "@types/node": "^10.3.4",
+     "@types/webdriverio": "^4.10.2",
+     "allure-commandline": "^2.5.0",
+     "appium": "^1.8.1",
+     "chai": "^4.1.2",
+     "cucumber": "^4.2.1",
+     "rimraf": "^2.6.2",
+     "ts-node": "^6.1.1",
+     "tslint": "^5.10.0",
+     "typescript": "^2.9.2",
+     "wdio-allure-reporter": "^0.6.2",
+     "wdio-appium-service": "^0.2.3",
+     "wdio-cucumber-framework": "^2.1.0",
+     "wdio-spec-reporter": "^0.1.4",
+     "webdriverio": "^4.12.0"
+   }
+ }

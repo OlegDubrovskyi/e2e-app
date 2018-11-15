@@ -1,0 +1,13 @@
+[35m[Appium][39m Welcome to Appium v1.9.1
+[35m[Appium][39m Non-default server args:
+[35m[Appium][39m   sessionOverride: true
+[35m[Appium][39m   debugLogSpacing: true
+[35m[Appium][39m   defaultCommandTimeout: 1800000
+Fatal TypeError: Class constructor BaseDriver cannot be invoked without 'new'
+    at new AppiumDriver (/home/oleg/Projects/e2e-app/node_modules/appium/lib/appium.js:131:19)
+    at main$ (/home/oleg/Projects/e2e-app/node_modules/appium/lib/main.js:124:16)
+    at tryCatch (/home/oleg/Projects/e2e-app/node_modules/babel-runtime/regenerator/runtime.js:67:40)
+    at GeneratorFunctionPrototype.invoke [as _invoke] (/home/oleg/Projects/e2e-app/node_modules/babel-runtime/regenerator/runtime.js:315:22)
+    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/home/oleg/Projects/e2e-app/node_modules/babel-runtime/regenerator/runtime.js:100:21)
+    at GeneratorFunctionPrototype.invoke (/home/oleg/Projects/e2e-app/node_modules/babel-runtime/regenerator/runtime.js:136:37)
+    at <anonymous>
